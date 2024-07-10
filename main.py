@@ -14,10 +14,10 @@ def is_valid_message(text):
         return False
 
 # Укажем токен телеграм-бота из BotFather'а и зададим режим форматирования (parse_mode) с помощью HTML-тегов.
-bot = telebot.TeleBot(token='your_token_from_botFather', parse_mode='html')
+bot = telebot.TeleBot(token='your_token_from_BotFather', parse_mode='html')
 
 # Массив с доступными расширениями файлов. Можно изменить, и добавятся/удалятся кнопки выбора на клавиатуре.
-formats = ['.jpg', '.png', '.svg', '.gif', '.ico', '.mp4', '.avi', '.webp', '.docx', '.xlsx', '.txt', '.pdf', '.css', '.html', '.js', '.json', '.zip', '.rar']
+formats = ['.jpg', '.png', '.svg', '.gif', '.ico', '.bmp', '.mp4', '.avi', '.docx', '.xlsx', '.txt', '.pdf', '.css', '.html', '.js', '.json', '.zip', '.rar']
 
 # Добавим меню кастомных команд, и пропишем туда стандартную команду /start. С её помощью можно будет перезапустить бота и начать по-новой.
 bot.set_my_commands([types.BotCommand('/start', 'перезапуск бота')])
@@ -27,7 +27,7 @@ bot.set_my_commands([types.BotCommand('/start', 'перезапуск бота')
 @bot.message_handler(commands=['start'])
 def welcome(message):
 	sti = open('sticker.webp', 'rb')
-#	sti = open('/Users/g.rom/Documents/sticker.webp', 'rb')
+#	sti = open('/root/generation_file-main/sticker.webp', 'rb')
 	bot.send_sticker(message.chat.id, sti)
 	# Получаем имя пользователя Telegram, чтобы можно было обратиться к нему по имени.
 	username = message.from_user.first_name
